@@ -43,8 +43,8 @@ public class GUI extends javax.swing.JFrame {
         btnSimularMetodoDivision = new javax.swing.JButton();
         PNLDivision1 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
-        txtTamanioArregloDiv1 = new javax.swing.JTextField();
-        btnMetodoDivision1 = new javax.swing.JButton();
+        txtNumBitsCentrales = new javax.swing.JTextField();
+        btnMetodoMidsquare = new javax.swing.JButton();
         PNLDivision2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
         txtTamanioArregloDiv2 = new javax.swing.JTextField();
@@ -147,18 +147,18 @@ public class GUI extends javax.swing.JFrame {
         PNLDivision1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel4.setText("Digite tamaño del arreglo:");
+        jLabel4.setText("Digite número de bits centrales:");
 
-        txtTamanioArregloDiv1.addActionListener(new java.awt.event.ActionListener() {
+        txtNumBitsCentrales.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTamanioArregloDiv1ActionPerformed(evt);
+                txtNumBitsCentralesActionPerformed(evt);
             }
         });
 
-        btnMetodoDivision1.setText("Método de división");
-        btnMetodoDivision1.addActionListener(new java.awt.event.ActionListener() {
+        btnMetodoMidsquare.setText("Método de Midsquare");
+        btnMetodoMidsquare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMetodoDivision1ActionPerformed(evt);
+                btnMetodoMidsquareActionPerformed(evt);
             }
         });
 
@@ -169,10 +169,10 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(PNLDivision1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PNLDivision1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTamanioArregloDiv1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMetodoDivision1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtNumBitsCentrales, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnMetodoMidsquare)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         PNLDivision1Layout.setVerticalGroup(
             PNLDivision1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,9 +180,9 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTamanioArregloDiv1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumBitsCentrales, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMetodoDivision1)
+                .addComponent(btnMetodoMidsquare)
                 .addContainerGap(34, Short.MAX_VALUE))
         );
 
@@ -274,7 +274,7 @@ public class GUI extends javax.swing.JFrame {
         jLabel7.setText("Método de división");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel8.setText("Método de división");
+        jLabel8.setText("Método de Midsquare");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel9.setText("Método de división");
@@ -393,7 +393,7 @@ public class GUI extends javax.swing.JFrame {
                     int clave = Integer.parseInt(txtClave.getText());
                     numDispersion = clave % tamArreglo;
                     txtNumDispersion.setText(String.valueOf(numDispersion));
-                    
+
                 }
             }
 
@@ -403,13 +403,59 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMetodoDivisionActionPerformed
 
-    private void txtTamanioArregloDiv1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioArregloDiv1ActionPerformed
+    private void txtNumBitsCentralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumBitsCentralesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtTamanioArregloDiv1ActionPerformed
+    }//GEN-LAST:event_txtNumBitsCentralesActionPerformed
 
-    private void btnMetodoDivision1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoDivision1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMetodoDivision1ActionPerformed
+    private void btnMetodoMidsquareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoMidsquareActionPerformed
+        try {
+            int numBitsCentrales = Integer.parseInt(txtNumBitsCentrales.getText());
+            if (numBitsCentrales < 2) {
+                txtNumDispersion.setText("Favor escriba un número mayor o igual a 2");
+            } else {
+                int llave2 = Integer.parseInt(txtClave.getText()) * Integer.parseInt(txtClave.getText()),
+                        tamBinClave2 = 0,
+                        indiceMitadLlave2 = 0,
+                        i = 0,
+                        inicioCodDispersion = 0,
+                        decimalCodDispersion = 0;
+                String strLlave2 = Integer.toBinaryString(llave2),
+                        codDispersion = "";
+                tamBinClave2 = strLlave2.length();
+                indiceMitadLlave2 = tamBinClave2 / 2;
+
+                char[] arrayLlave2 = new char[tamBinClave2];
+
+                for (i = 0; i < tamBinClave2; i++) {
+                    arrayLlave2[i] = strLlave2.charAt(i);
+                }
+                try {
+                    if (numBitsCentrales % 2 == 0) {
+                        inicioCodDispersion = indiceMitadLlave2 - (numBitsCentrales / 2) + 1;
+                        if (tamBinClave2 % 2 == 0) {
+                            inicioCodDispersion--;
+                        }
+                    } else {
+                        inicioCodDispersion = indiceMitadLlave2 - (numBitsCentrales / 2);
+                    }
+
+                    for (i = 0; i < numBitsCentrales; i++) {
+                        codDispersion += arrayLlave2[inicioCodDispersion + i];
+                    }
+                    decimalCodDispersion = Integer.parseInt(codDispersion, 2);
+
+                    txtNumDispersion.setText(Integer.toString(decimalCodDispersion));
+                } catch (Exception e) {
+                    txtNumDispersion.setText("Los bits sobrepasan los bits de la llave al cuadrado.");
+                }
+
+            }
+
+        } catch (NumberFormatException e) {
+            txtNumDispersion.setText("Favor escriba un número mayor que 0");
+            System.out.println("Error: el valor del campo 'Número de dispersión' contiene caracteres no numéricos");
+        }
+    }//GEN-LAST:event_btnMetodoMidsquareActionPerformed
 
     private void txtTamanioArregloDiv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioArregloDiv2ActionPerformed
         // TODO add your handling code here:
@@ -429,7 +475,7 @@ public class GUI extends javax.swing.JFrame {
 
     private void btnSimularMetodoDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularMetodoDivisionActionPerformed
         MDivision mDivision = new MDivision();
-        
+
     }//GEN-LAST:event_btnSimularMetodoDivisionActionPerformed
 
     /**
@@ -473,9 +519,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel PNLDivision2;
     private javax.swing.JPanel PNLDivision3;
     private javax.swing.JButton btnMetodoDivision;
-    private javax.swing.JButton btnMetodoDivision1;
     private javax.swing.JButton btnMetodoDivision2;
     private javax.swing.JButton btnMetodoDivision3;
+    private javax.swing.JButton btnMetodoMidsquare;
     private javax.swing.JButton btnSimularMetodoDivision;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -490,9 +536,9 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel lDigiteLlave;
     private javax.swing.JLabel lTitulo;
     private javax.swing.JTextField txtClave;
+    private javax.swing.JTextField txtNumBitsCentrales;
     private javax.swing.JTextField txtNumDispersion;
     private javax.swing.JTextField txtTamanioArregloDiv;
-    private javax.swing.JTextField txtTamanioArregloDiv1;
     private javax.swing.JTextField txtTamanioArregloDiv2;
     private javax.swing.JTextField txtTamanioArregloDiv3;
     // End of variables declaration//GEN-END:variables
