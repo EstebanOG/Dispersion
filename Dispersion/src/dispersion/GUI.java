@@ -47,12 +47,14 @@ public class GUI extends javax.swing.JFrame {
         btnMetodoMidsquare = new javax.swing.JButton();
         PNLDivision2 = new javax.swing.JPanel();
         jLabel5 = new javax.swing.JLabel();
-        txtTamanioArregloDiv2 = new javax.swing.JTextField();
-        btnMetodoDivision2 = new javax.swing.JButton();
+        txtBase = new javax.swing.JTextField();
+        btnMetodoTransformacion = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        txtTamanioArregloTransformacion = new javax.swing.JTextField();
         PNLDivision3 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
-        txtTamanioArregloDiv3 = new javax.swing.JTextField();
-        btnMetodoDivision3 = new javax.swing.JButton();
+        txtNumBitsGrupos = new javax.swing.JTextField();
+        btnMetodoPlegamiento = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -172,7 +174,7 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(txtNumBitsCentrales, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnMetodoMidsquare)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         PNLDivision1Layout.setVerticalGroup(
             PNLDivision1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,18 +191,27 @@ public class GUI extends javax.swing.JFrame {
         PNLDivision2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
 
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel5.setText("Digite tamaño del arreglo:");
+        jLabel5.setText("Digite la base:");
 
-        txtTamanioArregloDiv2.addActionListener(new java.awt.event.ActionListener() {
+        txtBase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTamanioArregloDiv2ActionPerformed(evt);
+                txtBaseActionPerformed(evt);
             }
         });
 
-        btnMetodoDivision2.setText("Método de división");
-        btnMetodoDivision2.addActionListener(new java.awt.event.ActionListener() {
+        btnMetodoTransformacion.setText("Método de Transformación de llaves");
+        btnMetodoTransformacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMetodoDivision2ActionPerformed(evt);
+                btnMetodoTransformacionActionPerformed(evt);
+            }
+        });
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel10.setText("Digite el tamaño del arreglo:");
+
+        txtTamanioArregloTransformacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTamanioArregloTransformacionActionPerformed(evt);
             }
         });
 
@@ -211,38 +222,46 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(PNLDivision2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PNLDivision2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTamanioArregloDiv2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMetodoDivision2))
+                    .addComponent(btnMetodoTransformacion)
+                    .addGroup(PNLDivision2Layout.createSequentialGroup()
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtBase, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTamanioArregloTransformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         PNLDivision2Layout.setVerticalGroup(
             PNLDivision2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(PNLDivision2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(PNLDivision2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtBase, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTamanioArregloDiv2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMetodoDivision2)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(txtTamanioArregloTransformacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnMetodoTransformacion)
+                .addContainerGap(8, Short.MAX_VALUE))
         );
 
         PNLDivision3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 255)));
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel6.setText("Digite tamaño del arreglo:");
+        jLabel6.setText("Digite el número de bits de cada grupo");
 
-        txtTamanioArregloDiv3.addActionListener(new java.awt.event.ActionListener() {
+        txtNumBitsGrupos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtTamanioArregloDiv3ActionPerformed(evt);
+                txtNumBitsGruposActionPerformed(evt);
             }
         });
 
-        btnMetodoDivision3.setText("Método de división");
-        btnMetodoDivision3.addActionListener(new java.awt.event.ActionListener() {
+        btnMetodoPlegamiento.setText("Método de Plegamiento");
+        btnMetodoPlegamiento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMetodoDivision3ActionPerformed(evt);
+                btnMetodoPlegamientoActionPerformed(evt);
             }
         });
 
@@ -253,10 +272,13 @@ public class GUI extends javax.swing.JFrame {
             .addGroup(PNLDivision3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(PNLDivision3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTamanioArregloDiv3, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnMetodoDivision3))
-                .addContainerGap(84, Short.MAX_VALUE))
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(PNLDivision3Layout.createSequentialGroup()
+                        .addGroup(PNLDivision3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNumBitsGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnMetodoPlegamiento))
+                        .addGap(0, 100, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         PNLDivision3Layout.setVerticalGroup(
             PNLDivision3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,20 +286,20 @@ public class GUI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtTamanioArregloDiv3, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtNumBitsGrupos, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnMetodoDivision3)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addComponent(btnMetodoPlegamiento)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel7.setText("Método de división");
+        jLabel7.setText("Método de Transformación");
 
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         jLabel8.setText("Método de Midsquare");
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
-        jLabel9.setText("Método de división");
+        jLabel9.setText("Método de Plegamiento");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -294,14 +316,14 @@ public class GUI extends javax.swing.JFrame {
                                 .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(PNLDivision2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PNLDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(PNLDivision, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(PNLDivision3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(PNLDivision1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(PNLDivision1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 195, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -339,9 +361,9 @@ public class GUI extends javax.swing.JFrame {
                         .addGap(221, 221, 221)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(PNLDivision2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PNLDivision3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PNLDivision3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(PNLDivision2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -457,26 +479,106 @@ public class GUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnMetodoMidsquareActionPerformed
 
-    private void txtTamanioArregloDiv2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioArregloDiv2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTamanioArregloDiv2ActionPerformed
+    private void txtBaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBaseActionPerformed
 
-    private void btnMetodoDivision2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoDivision2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnMetodoDivision2ActionPerformed
+    }//GEN-LAST:event_txtBaseActionPerformed
 
-    private void txtTamanioArregloDiv3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioArregloDiv3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtTamanioArregloDiv3ActionPerformed
+    private void btnMetodoTransformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoTransformacionActionPerformed
+        try {
+            int tamArregloT = Integer.parseInt(txtTamanioArregloTransformacion.getText()),
+                    baseT = Integer.parseInt(txtBase.getText());
+            
+            if (tamArregloT < 0 || baseT < 5) {
+                if (baseT > 0 && baseT < 5) {
+                    txtNumDispersion.setText("Digite una base mayor que 5");
+                } else {
+                    txtNumDispersion.setText("Favor escriba un número mayor que 0");
+                }
+            } else {
+                System.out.println(txtClave.getText()+"-----"+txtBase.getText());
+                String llaveNuevaBase = Integer.toString(Integer.parseInt(txtClave.getText()),Integer.parseInt(txtBase.getText()));
+                System.out.println(llaveNuevaBase);
+                
+                String binNuevaClave = Integer.toString(Integer.parseInt(llaveNuevaBase), 2);
+                System.out.println(binNuevaClave);
+            }
 
-    private void btnMetodoDivision3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoDivision3ActionPerformed
+        } catch (NumberFormatException e) {
+            txtNumDispersion.setText("Favor escriba un número mayor que 0");
+            System.out.println("Error: el valor del campo 'Número de dispersión' contiene caracteres no numéricos");
+        }
+    }//GEN-LAST:event_btnMetodoTransformacionActionPerformed
+
+    private void txtNumBitsGruposActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumBitsGruposActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnMetodoDivision3ActionPerformed
+    }//GEN-LAST:event_txtNumBitsGruposActionPerformed
+
+    private void btnMetodoPlegamientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoPlegamientoActionPerformed
+                try {
+            // Se obtiene el número de bits de cada grupo.
+            int numGrupo = Integer.parseInt(txtNumBitsGrupos.getText()),
+                   tamBClave = 0,
+                   i = 0,
+                   j = 0;
+           
+            String bClave = "";
+            
+            char[] arrayBClave,
+                    arrayNumFinal = new char[numGrupo];
+            
+            // Se valida que el número de grupo sea menor o igual a 7.
+            if (numGrupo > 7){
+                txtNumDispersion.setText("Favor digite un número de bits menor que 7");
+            }else{
+                // Se obtiene la clave y se trasnforma a binario
+                bClave = Integer.toBinaryString(Integer.parseInt(txtClave.getText()));
+                
+                // Tamaño de la clave convertida a binario
+                tamBClave = bClave.length();
+                
+                arrayBClave = new char[tamBClave];
+
+                for (i = 0; i < tamBClave; i++) {
+                    arrayBClave[i] = bClave.charAt(i);
+                }
+                System.out.println(arrayBClave);
+                for(i = 0; i < numGrupo; i++){
+                    arrayNumFinal[numGrupo- 1- i] = arrayBClave[tamBClave - 1 - i];
+                }
+                System.out.println(arrayNumFinal);
+                System.out.println("...................");
+                for(i = 0; i < tamBClave-numGrupo; i++){
+                    if( j == numGrupo){
+                        j = 0;
+                    }
+                    System.out.println(j);
+                    System.out.println(arrayNumFinal[numGrupo-1 - j]+ "-"+ arrayBClave[tamBClave-numGrupo-1 - i ]);
+                    if((arrayNumFinal[numGrupo-1 - j] == '0' && arrayBClave[tamBClave-numGrupo-1 - i ] == '0') || (arrayNumFinal[numGrupo-1-j] == '1' && arrayBClave[tamBClave-numGrupo-1-i] == '1')  ){
+                        arrayNumFinal[numGrupo-1 - j] = '0';
+                    }else{
+                        arrayNumFinal[numGrupo-1 - j] = '1';
+                    }
+                    j++;
+                }
+                
+                System.out.println(arrayNumFinal);
+                txtNumDispersion.setText(String.valueOf(Integer.parseInt(String.valueOf(arrayNumFinal),2)));
+            }
+
+        } catch (NumberFormatException e) {
+            txtNumDispersion.setText("Favor escriba un número mayor que 0");
+            System.out.println("Error: el valor del campo 'Número de dispersión' contiene caracteres no numéricos");
+        }
+    }//GEN-LAST:event_btnMetodoPlegamientoActionPerformed
 
     private void btnSimularMetodoDivisionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimularMetodoDivisionActionPerformed
         MDivision mDivision = new MDivision();
 
     }//GEN-LAST:event_btnSimularMetodoDivisionActionPerformed
+
+    private void txtTamanioArregloTransformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTamanioArregloTransformacionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTamanioArregloTransformacionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -519,11 +621,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel PNLDivision2;
     private javax.swing.JPanel PNLDivision3;
     private javax.swing.JButton btnMetodoDivision;
-    private javax.swing.JButton btnMetodoDivision2;
-    private javax.swing.JButton btnMetodoDivision3;
     private javax.swing.JButton btnMetodoMidsquare;
+    private javax.swing.JButton btnMetodoPlegamiento;
+    private javax.swing.JButton btnMetodoTransformacion;
     private javax.swing.JButton btnSimularMetodoDivision;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -535,11 +638,12 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lDigiteLlave;
     private javax.swing.JLabel lTitulo;
+    private javax.swing.JTextField txtBase;
     private javax.swing.JTextField txtClave;
     private javax.swing.JTextField txtNumBitsCentrales;
+    private javax.swing.JTextField txtNumBitsGrupos;
     private javax.swing.JTextField txtNumDispersion;
     private javax.swing.JTextField txtTamanioArregloDiv;
-    private javax.swing.JTextField txtTamanioArregloDiv2;
-    private javax.swing.JTextField txtTamanioArregloDiv3;
+    private javax.swing.JTextField txtTamanioArregloTransformacion;
     // End of variables declaration//GEN-END:variables
 }
