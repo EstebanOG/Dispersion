@@ -486,7 +486,12 @@ public class GUI extends javax.swing.JFrame {
     private void btnMetodoTransformacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMetodoTransformacionActionPerformed
         try {
             int tamArregloT = Integer.parseInt(txtTamanioArregloTransformacion.getText()),
-                    baseT = Integer.parseInt(txtBase.getText());
+                    baseT = Integer.parseInt(txtBase.getText()),
+                    i=0,
+                    numDecimal;
+            char[] claveNBase; 
+            
+            String binNuevaClave="";
             
             if (tamArregloT < 0 || baseT < 5) {
                 if (baseT > 0 && baseT < 5) {
@@ -499,7 +504,19 @@ public class GUI extends javax.swing.JFrame {
                 String llaveNuevaBase = Integer.toString(Integer.parseInt(txtClave.getText()),Integer.parseInt(txtBase.getText()));
                 System.out.println(llaveNuevaBase);
                 
-                String binNuevaClave = Integer.toString(Integer.parseInt(llaveNuevaBase), 2);
+                claveNBase = new char[llaveNuevaBase.length()];
+                
+                for (i = 0; i < llaveNuevaBase.length(); i++) {
+                    claveNBase[i] = llaveNuevaBase.charAt(i);
+                }
+                System.out.println(claveNBase);
+                
+                for (i = 0; i < llaveNuevaBase.length(); i++){
+                    binNuevaClave += Integer.toBinaryString(Integer.parseInt(String.valueOf(claveNBase[i]), baseT));
+                }
+                
+                numDecimal = Integer.parseInt(binNuevaClave,2);
+                txtNumDispersion.setText(String.valueOf(numDecimal % tamArregloT));
                 System.out.println(binNuevaClave);
             }
 
